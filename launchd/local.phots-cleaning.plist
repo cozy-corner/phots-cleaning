@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>local.phots-cleaning</string>
+	<!-- launchd doesn't expand ~ or $HOME in plist paths, so let the shell resolve them. -->
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/zsh</string>
+		<string>-c</string>
+		<string>cd "$HOME/code/phots-cleaning" &amp;&amp; exec /opt/homebrew/bin/uv run scripts/sort_screenshots.py --apply &gt;&gt; "$HOME/Library/Logs/phots-cleaning.log" 2&gt;&amp;1</string>
+	</array>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Day</key>
+		<integer>1</integer>
+		<key>Hour</key>
+		<integer>10</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
+</dict>
+</plist>
