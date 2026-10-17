@@ -1,0 +1,16 @@
+[project]
+name = "phots-cleaning"
+version = "0.1.0"
+description = "Collect deletable screenshots from macOS Photos into an album"
+requires-python = ">=3.13"
+dependencies = [
+    "osxphotos>=0.77.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["scripts"]
